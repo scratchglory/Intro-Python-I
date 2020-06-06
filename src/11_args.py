@@ -5,6 +5,10 @@
 # the sum. This is what you'd consider to be a regular, normal function.
 
 # YOUR CODE HERE
+def f1(num1, num2):
+    total = num1 + num2
+    print(total)
+
 
 print(f1(1, 2))
 
@@ -13,6 +17,16 @@ print(f1(1, 2))
 # Note: Google for "python arbitrary arguments" and look for "*args"
 
 # YOUR CODE HERE
+
+
+def f2(*args):
+    total = 0
+    if len(args) == 1:
+        total = args + 1
+    else:
+        total = sum(args)
+    return total
+
 
 print(f2(1))                    # Should print 1
 print(f2(1, 3))                 # Should print 4
@@ -31,8 +45,14 @@ print(f2(a))    # Should print 22
 
 # YOUR CODE HERE
 
-print(f3(1, 2))  # Should print 3
-print(f3(8))     # Should print 9
+
+def f3(number, number2=1):
+    total = number + number2
+    print(total)
+
+
+f3(1, 2)  # Should print 3
+f3(8)     # Should print 9
 
 
 # Write a function f4 that accepts an arbitrary number of keyword arguments and

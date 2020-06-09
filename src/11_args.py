@@ -7,10 +7,11 @@
 # YOUR CODE HERE
 def f1(num1, num2):
     total = num1 + num2
-    print(total)
+    return "F1:", total
 
 
 print(f1(1, 2))
+
 
 # Write a function f2 that takes any number of integer arguments and returns the
 # sum.
@@ -20,12 +21,9 @@ print(f1(1, 2))
 
 
 def f2(*args):
-    total = 0
-    if len(args) == 1:
-        total = args + 1
-    else:
-        total = sum(args)
-    return total
+    print("Type: ", args)
+    total = sum(list(args))
+    return 'F2:', total
 
 
 print(f2(1))                    # Should print 1
@@ -35,8 +33,10 @@ print(f2(7, 9, 1, 3, 4, 9, 0))  # Should print 33
 
 a = [7, 6, 5, 4]
 
-# How do you have to modify the f2 call below to make this work?
-print(f2(a))    # Should print 22
+# print("New_A length:", len(new_a))
+
+# # How do you have to modify the f2 call below to make this work?
+print(f2(*a))    # Should print 22
 
 # Write a function f3 that accepts either one or two arguments. If one argument,
 # it returns that value plus 1. If two arguments, it returns the sum of the
@@ -64,11 +64,17 @@ f3(8)     # Should print 9
 # Note: Google "python keyword arguments".
 
 # YOUR CODE HERE
+def f4(**key):
+    print(key.items())
+    for k, v in key.items():
+        print('key: %s, value: %s' % (k, v))
+
 
 # Should print
 # key: a, value: 12
 # key: b, value: 30
 f4(a=12, b=30)
+
 
 # Should print
 # key: city, value: Berkeley
@@ -79,7 +85,9 @@ f4(city="Berkeley", population=121240, founded="March 23, 1868")
 d = {
     "monster": "goblin",
     "hp": 3
+
+
 }
 
 # How do you have to modify the f4 call below to make this work?
-f4(d)
+f4(**d)

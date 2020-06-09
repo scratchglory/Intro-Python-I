@@ -31,15 +31,21 @@ import sys
 import calendar
 from datetime import datetime
 
+argument = input("{sys.argv} month and year: ")
+# print(argument)
+if len(argument) < 3:
+    month = int(argument)
+    print(calendar.TextCalendar().prmonth(2020, month))
 
-arguments = input("year, month: ")
+elif len(argument) > 2:
+    argument_split = argument.split(',')
+    print("ARG_SPLIT", argument_split)
+    month = int(argument_split[0])
+    year = int(argument_split[1])
+    print(month, year)
+    print(calendar.TextCalendar().formatmonth(year, month))
 
-
-# def calendar(arguments):
-c = calendar.TextCalendar()
-# year = date.today().year
-if len(arguments) <= 2:
-    c.prmonth(arguments)
-
+else:
+    print("Please provide month and/or year")
 
 # calendar(arguments)
